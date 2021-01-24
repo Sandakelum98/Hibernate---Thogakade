@@ -28,10 +28,12 @@ public class MainFormController {
         context.getChildren().add(FXMLLoader.load(this.getClass().getResource("/lk/ijse/hibernate/view/" + location + ".fxml")));
     }
 
-    public void btnCustomersOnAction(ActionEvent actionEvent) {
+    public void btnCustomersOnAction(ActionEvent actionEvent) throws IOException {
+        setUi("CustomersForm");
     }
 
-    public void btnItemsOnAction(ActionEvent actionEvent) {
+    public void btnItemsOnAction(ActionEvent actionEvent) throws IOException {
+        setUi("ItemForm");
     }
 
     public void btnOrdersOnAction(ActionEvent actionEvent) {

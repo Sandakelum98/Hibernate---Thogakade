@@ -1,23 +1,24 @@
 package lk.ijse.hibernate.dao.custom.impl;
 
-import lk.ijse.hibernate.dao.custom.CustomerDAO;
+import lk.ijse.hibernate.dao.custom.ItemDAO;
 import lk.ijse.hibernate.entity.Customer;
+import lk.ijse.hibernate.entity.Item;
 import lk.ijse.hibernate.util.FactoryConfiguration;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.NativeQuery;
 import org.hibernate.query.Query;
-import org.jvnet.staxex.BinaryText;
 
 import java.util.List;
 
-public class CustomerDAOImpl implements CustomerDAO {
+public class ItemDAOImpl implements ItemDAO {
     @Override
-    public boolean add(Customer entity) throws Exception {
+    public boolean add(Item entity) throws Exception {
         Session session = FactoryConfiguration.getInstance().getSession();
-
         Transaction transaction = session.beginTransaction();
+
         session.save(entity);
+
         transaction.commit();
         session.close();
         return true;
@@ -29,7 +30,7 @@ public class CustomerDAOImpl implements CustomerDAO {
     }
 
     @Override
-    public boolean update(Customer entity) throws Exception {
+    public boolean update(Item entity) throws Exception {
         return false;
     }
 
@@ -39,12 +40,12 @@ public class CustomerDAOImpl implements CustomerDAO {
     }
 
     @Override
-    public List<Customer> getAll() throws Exception {
+    public List<Item> getAll() throws Exception {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
-        Query query = session.createQuery("from Customer");
-        List<Customer> list = query.list();
+        Query query = session.createQuery("from Item");
+        List<Item> list = query.list();
 
         transaction.commit();
         session.close();
@@ -52,15 +53,15 @@ public class CustomerDAOImpl implements CustomerDAO {
     }
 
     @Override
-    public String getLastCustomerId() throws Exception {
+    public String getLastItemCode() throws Exception {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
-        NativeQuery sqlQuery = session.createSQLQuery("select id from Customer order by id desc limit 1");
-        String id = (String) sqlQuery.uniqueResult();
+        NativeQuery sqlQuery = session.createSQLQuery("select code from Item order by code desc limit 1");
+        String code = (String) sqlQuery.uniqueResult();
 
         transaction.commit();
         session.close();
-        return id;
+        return code;
     }
 }

@@ -7,6 +7,9 @@ import lk.ijse.hibernate.dao.custom.CustomerDAO;
 import lk.ijse.hibernate.dto.CustomerDTO;
 import lk.ijse.hibernate.entity.Customer;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class CustomerBOImpl implements CustomerBO {
 
     CustomerDAO customerDAO = DAOFactory.getInstance().getDAO(DAOType.CUSTOMER);
@@ -19,5 +22,36 @@ public class CustomerBOImpl implements CustomerBO {
                 customerDTO.getAddress(),
                 customerDTO.getSalary()
         ));
+    }
+
+    @Override
+    public String getNewCustomerId() throws Exception {
+        String lastId = customerDAO.getLastCustomerId();
+
+        int newId = Integer.parseInt(lastId.substring(1, 4))+1;
+
+        if(newId < 10){
+            return "C00"+newId;
+        }else if(newId < 100){
+            return "C0"+newId;
+        }else{
+            return "C"+newId;
+        }
+    }
+
+    @Override
+    public List getAll() throws Exception {
+        List<Customer> allCustomers = customerDAO.getAll();
+        List<CustomerDTO> allCustomerDTOS = new ArrayList<>();
+        for (Customer c : allCustomers) {
+            CustomerDTO customerDTO = new CustomerDTO(
+                    c.getId(),
+                    c.getName(),
+                    c.getAddress(),
+                    c.getSalary()
+            );
+            allCustomerDTOS.add(customerDTO);
+        }
+        return allCustomerDTOS;
     }
 }

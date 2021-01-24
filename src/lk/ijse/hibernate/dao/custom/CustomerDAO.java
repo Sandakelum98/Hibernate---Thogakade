@@ -4,4 +4,5 @@ import lk.ijse.hibernate.dao.SuperDAO;
 import lk.ijse.hibernate.entity.Customer;
 
 public interface CustomerDAO extends SuperDAO<Customer, String> {
+    public String getLastCustomerId() throws Exception;
 }
