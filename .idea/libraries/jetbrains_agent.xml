@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="jetbrains-agent">
+    <CLASSES>
+      <root url="jar://E:/Softwares/IJSE app/IntelliJ/jetbrains-agent.jar!/" />
+      <root url="jar://E:/Softwares/IJSE app/IntelliJ/jfoenix-8.0.7 (1).jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

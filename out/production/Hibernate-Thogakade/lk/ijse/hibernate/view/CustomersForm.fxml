@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="423.0" prefWidth="696.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hibernate.controller.CustomersFormController">
+   <children>
+      <JFXTextField fx:id="txtName" layoutX="23.0" layoutY="45.0" promptText="Name" />
+      <JFXTextField fx:id="txtAddress" layoutX="195.0" layoutY="45.0" promptText="Addrees" />
+      <JFXTextField fx:id="txtSalary" layoutX="362.0" layoutY="45.0" promptText="Salary" />
+      <Label layoutX="23.0" layoutY="14.0" text="No :" textFill="#ee0707">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblId" layoutX="54.0" layoutY="14.0" prefHeight="17.0" prefWidth="101.0" text="C001" textFill="#ee0707">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="btnSave" layoutX="520.0" layoutY="45.0" onAction="#btnSaveOnAction" prefHeight="25.0" prefWidth="76.0" style="-fx-background-color: #168486;" text="Save" textFill="WHITE" />
+      <JFXButton fx:id="btnCancel" layoutX="605.0" layoutY="45.0" onAction="#btnCancelOnAction" prefHeight="25.0" prefWidth="76.0" style="-fx-background-color: #168486;" text="Cancel" textFill="WHITE" />
+      <TableView fx:id="tblCustomers" layoutX="14.0" layoutY="100.0" prefHeight="308.0" prefWidth="667.0">
+        <columns>
+          <TableColumn fx:id="clmId" prefWidth="75.0" text="ID" />
+          <TableColumn fx:id="clmName" prefWidth="211.0" text="Name" />
+            <TableColumn fx:id="clmAddress" prefWidth="241.0" text="Address" />
+            <TableColumn fx:id="clmSalary" prefWidth="136.0" text="Salary" />
+        </columns>
+      </TableView>
+      <JFXTextField fx:id="txtId" layoutX="105.0" layoutY="10.0" promptText="ID" />
+   </children>
+</AnchorPane>
