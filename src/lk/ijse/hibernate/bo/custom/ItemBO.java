@@ -9,4 +9,5 @@ public interface ItemBO extends SuperBO {
     public boolean addItem(ItemDTO itemDTO) throws Exception;
     public List getAllitems() throws Exception;
     public String getNewItemCode() throws Exception;
+    public ItemDTO searchItem(String code) throws Exception;
 }

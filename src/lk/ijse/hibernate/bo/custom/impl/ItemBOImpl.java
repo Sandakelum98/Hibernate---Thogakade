@@ -54,4 +54,16 @@ public class ItemBOImpl implements ItemBO{
             return "P"+newCode;
         }
     }
+
+    @Override
+    public ItemDTO searchItem(String code) throws Exception {
+        Item item = itemDAO.search(code);
+        ItemDTO itemDTO = new ItemDTO(
+                item.getCode(),
+                item.getDescription(),
+                item.getUnitPrice(),
+                item.getQty()
+        );
+        return itemDTO;
+    }
 }

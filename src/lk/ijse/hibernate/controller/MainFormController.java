@@ -36,6 +36,7 @@ public class MainFormController {
         setUi("ItemForm");
     }
 
-    public void btnOrdersOnAction(ActionEvent actionEvent) {
+    public void btnOrdersOnAction(ActionEvent actionEvent) throws IOException {
+        setUi("OrderForm");
     }
 }

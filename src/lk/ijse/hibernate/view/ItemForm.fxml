@@ -30,7 +30,7 @@
             <TableColumn fx:id="clmCode" prefWidth="75.0" text="Code" />
             <TableColumn fx:id="clmDescription" prefWidth="255.0" text="Description" />
             <TableColumn fx:id="clmUnitPrice" prefWidth="213.0" text="Unit Price (Rs.)" />
-            <TableColumn fx:id="clmQty" prefWidth="123.0" text="Qty On Hand" />
+            <TableColumn fx:id="clmQty" prefWidth="122.0" text="Qty On Hand" />
          </columns>
       </TableView>
    </children>

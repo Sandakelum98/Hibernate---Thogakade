@@ -10,4 +10,5 @@ public interface CustomerBO extends SuperBO {
     public boolean add(CustomerDTO customerDTO) throws Exception;
     public String getNewCustomerId() throws Exception;
     public List getAll() throws Exception;
+    public CustomerDTO searchCustomer(String id) throws Exception;
 }

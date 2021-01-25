@@ -54,4 +54,16 @@ public class CustomerBOImpl implements CustomerBO {
         }
         return allCustomerDTOS;
     }
+
+    @Override
+    public CustomerDTO searchCustomer(String id) throws Exception {
+        Customer customer = customerDAO.search(id);
+        CustomerDTO customerDTO = new CustomerDTO(
+                customer.getId(),
+                customer.getName(),
+                customer.getAddress(),
+                customer.getSalary()
+        );
+        return customerDTO;
+    }
 }

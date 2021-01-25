@@ -7,7 +7,6 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.NativeQuery;
 import org.hibernate.query.Query;
-import org.jvnet.staxex.BinaryText;
 
 import java.util.List;
 
@@ -35,7 +34,16 @@ public class CustomerDAOImpl implements CustomerDAO {
 
     @Override
     public Customer search(String s) throws Exception {
-        return null;
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        Query query = session.createQuery("from Customer where id = ?1");
+        query.setParameter(1, s);
+        Customer customer = (Customer) query.uniqueResult();
+
+        transaction.commit();
+        session.close();
+        return customer;
     }
 
     @Override

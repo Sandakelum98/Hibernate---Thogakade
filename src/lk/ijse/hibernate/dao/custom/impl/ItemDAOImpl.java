@@ -35,8 +35,18 @@ public class ItemDAOImpl implements ItemDAO {
     }
 
     @Override
-    public Customer search(String s) throws Exception {
-        return null;
+    public Item search(String s) throws Exception {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        Query query = session.createQuery("from Item where id = ?1");
+        query.setParameter(1, s);
+        Item item = (Item) query.uniqueResult();
+
+        transaction.commit();
+        session.close();
+
+        return item;
     }
 
     @Override
